@@ -1,0 +1,17 @@
+---
+:smtp_server: '<%= @smtp_server %>'
+:smtp_port: '<%= @smtp_port %>'
+<% if @smtp_use_auth -%>
+:smtp_use_auth: true
+<% else -%>
+:smtp_use_auth: false
+<% end -%>
+<% if @smtp_auth_type -%>
+:smtp_auth_type: '<%= @smtp_auth_type %>'
+<% end -%>
+<% if @smtp_account -%>
+:smtp_account: '<%= @smtp_account %>'
+<% end -%>
+<% if @smtp_secret -%>
+:smtp_secret: '<%= @smtp_secret %>'
+<% end -%>

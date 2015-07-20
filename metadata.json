@@ -1,0 +1,81 @@
+{
+  "name": "stjeanp-smtpreports",
+  "version": "0.0.1",
+  "author": "Patrick St. Jean",
+  "summary": "Creates an SMTP report for failed runs",
+  "license": "Apache-2.0",
+  "source": "https://github.com/stjeanp/stjeanp-smtpreports",
+  "project_page": "https://github.com/stjeanp/stjeanp-smtpreports",
+  "issues_url": "https://github.com/stjeanp/stjeanp-smtpreports/issues",
+  "tags": [
+    "report", "reports", "SMTP"
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "10.04",
+        "12.04",
+        "14.04"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "OpenSuSE",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": ">= 3.7.0"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.7.0"
+    }
+  ],
+  "dependencies": [
+  ]
+}
