@@ -4,3 +4,4 @@ vendor/
 .vagrant/
 .bundle/
 coverage/
+*.swp
