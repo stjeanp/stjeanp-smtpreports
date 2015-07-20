@@ -1,8 +1,8 @@
 {
   "name": "stjeanp-smtpreports",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "author": "Patrick St. Jean",
-  "summary": "Creates an SMTP report for failed runs",
+  "summary": "Creates an SMTP report for failed and changed runs",
   "license": "Apache-2.0",
   "source": "https://github.com/stjeanp/stjeanp-smtpreports",
   "project_page": "https://github.com/stjeanp/stjeanp-smtpreports",
