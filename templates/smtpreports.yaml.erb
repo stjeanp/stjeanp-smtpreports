@@ -1,6 +1,9 @@
 ---
 :smtp_server: '<%= @smtp_server %>'
 :smtp_port: '<%= @smtp_port %>'
+:smtp_helo: '<%= @smtp_helo %>'
+:smtp_from: '<%= @smtp_from %>'
+:smtp_to: '<%= @smtp_to %>'
 <% if @smtp_use_auth -%>
 :smtp_use_auth: true
 <% else -%>
