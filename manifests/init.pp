@@ -18,6 +18,14 @@
 #   (integer) The TCP port the SMTP server is listening on
 #   (default: 25)
 #
+# [*smtp_from*]
+#   (string) The email address to send from
+#   (default: undef)
+#
+# [*smtp_to*]
+#   (string) The email address to send to
+#   (default: undef)
+#
 # [*smtp_use_auth*]
 #   (boolean) Does the SMTP connection need authentication
 #   (default: false)
@@ -50,6 +58,8 @@
 class smtpreports (
   $smtp_server    = $smtpreports::params::smtp_server,
   $smtp_port      = $smtpreports::params::smtp_port,
+  $smtp_from      = $smtpreports::params::smtp_from,
+  $smtp_to        = $smtpreports::params::smtp_to,
   $smtp_use_auth  = $smtpreports::params::smtp_use_auth,
   $smtp_auth_type = $smtpreports::params::smtp_auth_type,
   $smtp_account   = $smtpreports::params::smtp_account,
@@ -59,6 +69,8 @@ class smtpreports (
 
   validate_string($smtp_server)
   validate_integer($smtp_port)
+  validate_string($smtp_from)
+  validate_string($smtp_to)
   validate_bool($smtp_use_auth)
   if $smtp_auth_type {
     validate_string($smtp_auth_type)

@@ -9,6 +9,8 @@ class smtpreports::params {
   $smtp_auth_type = undef
   $smtp_account   = undef
   $smtp_secret    = undef
+  $smtp_from      = undef
+  $smtp_to        = undef
 
   if str2bool($::is_pe) {
     $puppet_user    = 'pe-puppet'
