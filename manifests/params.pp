@@ -5,6 +5,7 @@
 class smtpreports::params {
   $smtp_server    = undef
   $smtp_port      = 25
+  $smtp_helo      = 'localhost'
   $smtp_use_auth  = false
   $smtp_auth_type = undef
   $smtp_account   = undef

@@ -18,6 +18,11 @@
 #   (integer) The TCP port the SMTP server is listening on
 #   (default: 25)
 #
+# [*smtp_helo*]
+#   (string) The hostname to put in the HELO
+#   (default: localhost)
+#   Example: puppetmaster.example.com
+#
 # [*smtp_from*]
 #   (string) The email address to send from
 #   (default: undef)
@@ -58,6 +63,7 @@
 class smtpreports (
   $smtp_server    = $smtpreports::params::smtp_server,
   $smtp_port      = $smtpreports::params::smtp_port,
+  $smtp_helo      = $smtpreports::params::smtp_helo,
   $smtp_from      = $smtpreports::params::smtp_from,
   $smtp_to        = $smtpreports::params::smtp_to,
   $smtp_use_auth  = $smtpreports::params::smtp_use_auth,
@@ -69,6 +75,7 @@ class smtpreports (
 
   validate_string($smtp_server)
   validate_integer($smtp_port)
+  validate_string($smtp_helo)
   validate_string($smtp_from)
   validate_string($smtp_to)
   validate_bool($smtp_use_auth)
@@ -82,16 +89,7 @@ class smtpreports (
   }
   validate_absolute_path($puppet_confdir)
 
-  # Template Uses:
-  # - $smtp_server
-  # - $smtp_port
-  # - $smtp_use_auth
-  # - $smtp_auth_type
-  # - $smtp_account
-  # - $smtp_secret
-  # - $puppet_confdir
-  #
-  file {'smtpreporter-yaml-config':
+  file {'smtpreports-yaml-config':
     ensure  => present,
     path    => "${smtpreports::params::puppet_confdir}/smtpreports.yaml",
     mode    => '0640',
