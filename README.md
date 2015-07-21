@@ -59,14 +59,43 @@ class { 'smtpreports':
 }
 ```
 
-####Specify a different port
+####Parameters
 
-```puppet
-class { 'smtpreports':
-  smtp_server => 'host.example.com'
-  smtp_port   => 25
-}
-```
+##### `smtp_server`
+*Required.* Specifies the hostname or IP address of the SMTP server to use.
+Default: undef.
+
+##### `smtp_port`
+Specifies the TCP port to use to connect to the SMTP server.
+Default: 25.
+
+##### `smtp_helo`
+Specifies the hostname to use in the HELO command.
+Default: 'localhost'.
+
+##### `smtp_from`
+*Required.* The email address that should be used as the sender.
+Default: undef.
+
+##### `smtp_to`
+*Required.* A comma delimited list of email addresses that will receive the notifications.
+Default: undef.
+
+##### `smtp_use_auth`
+Whether or not to use SMTP authentication.
+Valid options: true, false. Default: false.
+
+##### `smtp_auth_type`
+*Required when smtp_use_auth is true.* The authentication type to use.
+Valid options: plain, login, cram_md5. Default: undef.
+
+##### `smtp_account`
+*Required when smtp_use_auth is true.* The account/user to authenticate as.
+Default: undef.
+
+##### `smtp_secret`
+*Required when smtp_use_auth is true.* The secret used to authenticate.
+Default: undef.
 
 ##Limitations
 
