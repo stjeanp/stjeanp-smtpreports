@@ -1,9 +1,10 @@
 source ENV['GEM_SOURCE'] || "https://rubygems.org"
 
 group :test do
-  gem 'rake'
+  gem 'rake', '>= 10.0.0'
   gem 'puppetlabs_spec_helper'
   gem 'rspec-puppet', :git => 'https://github.com/rodjek/rspec-puppet.git'
+  gem 'rspec-puppet-facts'
   gem 'metadata-json-lint'
   gem 'puppet-lint',             :require => false
 end
@@ -11,7 +12,6 @@ end
 group :development do
   gem 'travis'
   gem 'travis-lint'
-  gem 'puppet-blacksmith'
   gem 'guard-rake'
   gem 'rubocop', require: false
   gem 'pry'
