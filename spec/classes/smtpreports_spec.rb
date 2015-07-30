@@ -8,8 +8,15 @@ describe 'smtpreports', :type => :class do
     it { should contain_file('smtpreports-yaml-config').with(:owner => 'puppet') }
   end
 
-  context 'pe' do
+  context 'pe, pre-2015.2' do
     let(:facts) { { :is_pe => true } }
+    it { should contain_class('smtpreports') }
+    it { should contain_class('smtpreports::params') }
+    it { should contain_file('smtpreports-yaml-config').with(:owner => 'pe-puppet') }
+  end
+
+  context 'pe, >=2015.2' do
+    let(:facts) { { :pe_server_version => "2015.2.0" } }
     it { should contain_class('smtpreports') }
     it { should contain_class('smtpreports::params') }
     it { should contain_file('smtpreports-yaml-config').with(:owner => 'pe-puppet') }

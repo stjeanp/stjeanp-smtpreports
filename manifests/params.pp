@@ -13,7 +13,7 @@ class smtpreports::params {
   $smtp_from      = undef
   $smtp_to        = undef
 
-  if str2bool($::is_pe) {
+  if $pe_server_version or str2bool($::is_pe) {
     $puppet_user    = 'pe-puppet'
     $puppet_confdir = '/etc/puppetlabs/puppet'
   } else {
