@@ -85,7 +85,7 @@ class smtpreports (
   file {'smtpreports-yaml-config':
     ensure  => present,
     path    => "${::puppet_confdir}/smtpreports.yaml",
-    mode    => '0640',
+    mode    => '0644',
     owner   => 'root',
     group   => 'root',
     content => template("${module_name}/smtpreports.yaml.erb"),
