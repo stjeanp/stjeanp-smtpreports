@@ -48,11 +48,6 @@
 #   (string) The secret to use with SMTP authentication
 #   (default: undef)
 #
-# [*puppet_confdir*]
-#   (string) path to the puppet configuration directory on disk,
-#   smtpreports.yaml will be written inside this directory
-#   (default '/etc/puppet')
-#
 # == Sample Usage:
 #
 #    class { 'smtpreports':
@@ -70,7 +65,6 @@ class smtpreports (
   $smtp_auth_type = $smtpreports::params::smtp_auth_type,
   $smtp_account   = $smtpreports::params::smtp_account,
   $smtp_secret    = $smtpreports::params::smtp_secret,
-  $puppet_confdir = $smtpreports::params::puppet_confdir,
 ) inherits smtpreports::params {
 
   validate_string($smtp_server)
@@ -87,13 +81,12 @@ class smtpreports (
     validate_string($smtp_account)
     validate_string($smtp_secret)
   }
-  validate_absolute_path($puppet_confdir)
 
   file {'smtpreports-yaml-config':
     ensure  => present,
-    path    => "${smtpreports::params::puppet_confdir}/smtpreports.yaml",
+    path    => "${::puppet_confdir}/smtpreports.yaml",
     mode    => '0640',
-    owner   => $smtpreports::params::puppet_user,
+    owner   => 'root',
     group   => 'root',
     content => template("${module_name}/smtpreports.yaml.erb"),
   }
